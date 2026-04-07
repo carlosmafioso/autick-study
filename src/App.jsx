@@ -16,11 +16,11 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<AnaliseDePerformance />} />
+            <Route index element={<PainelDeControle />} />
+            <Route path="analise" element={<AnaliseDePerformance />} />
             <Route path="calendario" element={<CalendarioEPlaneamento />} />
             <Route path="biblioteca" element={<BibliotecaDeConteudo />} />
             <Route path="assistente" element={<AssistenteDeIA />} />
-            <Route path="painel" element={<PainelDeControle />} />
           </Route>
           <Route path="/hacker" element={<HackerAttack />} />
         </Routes>

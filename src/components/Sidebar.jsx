@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const navItems = [
-  { icon: 'dashboard', label: 'Painel', path: '/painel' },
+  { icon: 'dashboard', label: 'Painel', path: '/' },
   { icon: 'auto_stories', label: 'Biblioteca', path: '/biblioteca' },
   { icon: 'smart_toy', label: 'Assistente IA', path: '/assistente' },
-  { icon: 'analytics', label: 'Análise', path: '/' },
+  { icon: 'analytics', label: 'Análise', path: '/analise' },
   { icon: 'calendar_today', label: 'Calendário', path: '/calendario' }
 ];
 
