@@ -4,22 +4,21 @@ import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const navItems = [
-  { icon: 'dashboard', label: 'Painel', path: '/estudante' },
-  { icon: 'groups', label: 'Turmas', path: '/estudante/turmas' },
-  { icon: 'auto_stories', label: 'Biblioteca', path: '/estudante/materiais' },
-  { icon: 'smart_toy', label: 'Assistente IA', path: '/estudante/assistente' },
-  { icon: 'quiz', label: 'Quiz', path: '/estudante/avaliacoes' },
-  { icon: 'analytics', label: 'Análise', path: '/estudante/desempenho' },
-  { icon: 'calendar_today', label: 'Calendário', path: '/estudante/calendario' }
+  { icon: 'dashboard', label: 'Painel Geral', path: '/professor' },
+  { icon: 'groups', label: 'Turmas', path: '/professor/turmas' },
+  { icon: 'folder_open', label: 'Materiais', path: '/professor/materiais' },
+  { icon: 'smart_toy', label: 'Assistente IA', path: '/professor/assistente' },
+  { icon: 'analytics', label: 'Desempenho', path: '/professor/desempenho' },
+  { icon: 'calendar_today', label: 'Calendário', path: '/professor/calendario' }
 ];
 
-export default function Sidebar({ isOpen, setIsOpen }) {
+export default function ProfessorSidebar({ isOpen, setIsOpen }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleNovoEstudo = () => {
+  const handleNovaTurma = () => {
     if (setIsOpen) setIsOpen(false);
-    router.push('/hacker');
+    router.push('/professor/turmas');
   };
 
   return (
@@ -35,7 +34,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       </div>
       <nav className="flex-1 px-2 space-y-0.5">
         {navItems.map((item) => {
-          const isActive = item.path === '/estudante' ? pathname === item.path : pathname?.startsWith(item.path);
+          const isActive = item.path === '/professor' ? pathname === item.path : pathname?.startsWith(item.path);
           return (
             <Link
               key={item.path}
@@ -61,15 +60,14 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       <div className="mx-3 my-3 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       <div className="px-3">
         <button 
-          onClick={handleNovoEstudo}
+          onClick={handleNovaTurma}
           className="w-full action-gradient text-white font-bold py-2.5 rounded-xl shadow-glow-orange hover:brightness-110 active:scale-[0.97] transition-all flex items-center justify-center gap-2 text-sm group"
         >
           <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:rotate-90">add</span>
-          Novo Estudo
+          Nova Turma
         </button>
       </div>
     </aside>
   );
 }
-
 

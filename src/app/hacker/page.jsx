@@ -1,5 +1,6 @@
+"use client";
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import './HackerAttack.css';
 
 // Random hex generator
@@ -33,7 +34,7 @@ const networkLogs = [
 ];
 
 export default function HackerAttack() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [countdown, setCountdown] = useState(59);
   const [recovered, setRecovered] = useState(false);
   const [showContent, setShowContent] = useState(false);
@@ -172,7 +173,7 @@ export default function HackerAttack() {
     setGlitchText('SISTEMA RECUPERADO');
     // After 5 seconds, go back to home
     setTimeout(() => {
-      navigate('/');
+      router.push('/estudante');
     }, 5000);
   };
 
@@ -361,3 +362,4 @@ export default function HackerAttack() {
     </div>
   );
 }
+
